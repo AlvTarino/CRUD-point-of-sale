@@ -1,0 +1,126 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar.css" rel="stylesheet">
+	
+	<!-- Custom styles for this template -->
+		<link href="form-validation.css" rel="stylesheet">
+		
+		<script src="jquery.min.js"></script>
+		<script src="html5.databse.js"></script>	
+	
+	<title>JS P.O.S</title>
+	<script type="text/javascript">
+		function calculateTotalCost() {
+			var pQty = document.getElementById('product_Quantity').value;
+ 			var uCost = document.getElementById('unitCost').value;
+ 			var tcost = document.getElementById('totalCost').value;
+			var myResult = pQty*uCost;
+		  document.getElementById('totalCost').value = myResult;
+		}
+ 
+	</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">JS-Point of Sale</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+
+		  </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+	
+	<div class="container">
+		<div class="col-md-8 order-md-1">
+			<h5 class="mb-3">Sample JS P.O.S CRUD</h5>
+			<form class="needs-validation" novalidate>
+				<div class="row">
+				  <div class="col-md-6 mb-3">
+					<label for="productName">Product name</label>
+					<input type="text" class="form-control" id="product_Name" placeholder="" value="" required>
+					<div class="invalid-feedback">
+					  Product name is required.
+					</div>
+				  </div>
+				  <div class="col-md-6 mb-3">
+					<label for="productQuantity">Product Quantity</label>
+					<input type="text" class="form-control" id="product_Quantity" placeholder="" value="" required oninput="calculateTotalCost()">
+					<div class="invalid-feedback">
+					  Quantity is required.
+					</div>
+				  </div>
+				</div>
+
+				<div class="row">
+				  <div class="col-md-6 mb-3">
+					<label for="product_type">Product type</label>
+					<select class="custom-select d-block w-100"  required>
+					  <option value="">Choose...</option>
+					  <option>Bakery</option>
+					  <option>Gadgets & technology</option>
+					  <option>Kitchen Ware</option>
+					  <option>Bathroom & Laundry</option>
+					</select>
+					<div class="invalid-feedback">
+					  Please select a valid product type.
+					</div>
+				  </div>
+				  <div class="col-md-6 mb-3">
+					<label for="unit_Cost">Unit Cost</label>
+					<input type="text" class="form-control" id="unitCost" placeholder="" value="" required oninput="calculateTotalCost()">
+					<div class="invalid-feedback">
+					  Unit Cost is required.				  
+					</div>
+				</div>
+				<div class="col-md-12 mb-4">
+					<label for="total_Cost">Total Cost</label>
+					<input type="text" class="form-control" id="totalCost" placeholder="" value="" hidden >
+				</div>
+				
+				<hr class="mb-4">
+				<button class="btn btn-primary btn-lg btn-block" type="submit">Submit Details</button>
+			</form>
+				<div style="margin-left: auto;margin-right:auto;width: 60%; margin-top: 100px;">
+					<table class="table table-bordered" id="show_edit_part">
+					</table>
+				</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (!window.openDatabase) {
+			var browserCompatibilityWebSqlUI = '<div class="alert alert-warning">'
+				+ '<strong>Warning !</strong> Your Browser does not support HTML5 offline Database (WebSql) <br/> To see the demo please open in latest version of Safari, Chrome and Opera.'
+				+ '</div>';
+
+			$("#browserCompatibilityWebSql").html(browserCompatibilityWebSqlUI);
+		}
+	</script>
+	
+	
+
+</body>
+</html>
